@@ -1,0 +1,5 @@
+{
+  "port": "8000",
+  "startMessage": "App listening on port",
+  "uriDB": "mongodb+srv://alex:9789355qw@cluster0.agxth.mongodb.net/curama?retryWrites=true&w=majority"
+}

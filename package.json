@@ -1,0 +1,21 @@
+{
+  "name": "curama-server",
+  "version": "0.0.1",
+  "description": "Server part of CURAMA.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "npx nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Bazhin",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "moment": "^2.24.0",
+    "mongoose": "^5.3.9",
+    "nodemailer": "^6.4.11",
+    "telegraf": "^3.33.0"
+  }
+}
