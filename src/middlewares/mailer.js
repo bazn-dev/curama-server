@@ -12,17 +12,12 @@ let transporter = nodemailer.createTransport({
   }
 });
 
-module.exports.sendMail = function(to, subject, text, html) {
-  to = 'alexbazhyn@gmail.com';
-  subject = 'Message from Node js';
-  text = 'This message was sent from Node js server.';
-  html = 'This <i>message</i> was sent from <strong>Node js</strong> server.';
-
+module.exports.sendMail = function(to, subject, html) {
   transporter.sendMail({
     from: '"Olga Bazhina" <info.bazn.dev@gmail.com',
     to,
     subject,
-    text,
+    text: '',
     html
   }).then(data => console.log(data));
 };

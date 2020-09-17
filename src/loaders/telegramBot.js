@@ -7,7 +7,7 @@ const Markup = require('telegraf/markup.js');
 
 function getMainMenu() {
   return Markup.keyboard([
-    ['leads', 'add lead']
+    ['leads', 'add lead', 'send email']
   ]).resize().extra()
 }
 
@@ -25,7 +25,13 @@ bot.hears('leads', (ctx) => {
 
     console.log(`${moment().format('DD/MM/YYYY HH:mm:ss')} - Got leads`);
 
-    ctx.reply(JSON.stringify(leads));
+    let str = '';
+
+    leads.forEach((lead, index) => {
+      str += `#${index}\nName: ${lead.name}\nEmail: ${lead.email}\nPhone: ${lead.phone}\nCompany: ${lead.company}\n\n`;
+    });
+
+    ctx.reply(str);
   });
 });
 
@@ -50,6 +56,26 @@ bot.hears(/^add lead/, (ctx) => {
   });
 
   //return ctx.reply(`add lead`)
+});
+
+bot.hears('send email', (ctx) => {
+  return ctx.reply(`Введите:\nsend email\nnumber of lead\nsubject\nhtml`)
+});
+
+bot.hears(/^send email/, (ctx) => {
+  const data = ctx.message.text.split('\n');
+
+  LeadModel.find({}, (error, leads) => {
+    const index = data[1];
+    const subject = data[2];
+
+    //TODO подумать над форматированным текстом с пустыми строками и тд
+    const html = data[3];
+
+    mailer.sendMail(leads[index].email, subject, html);
+  });
+
+  return ctx.reply(`${moment().format('DD/MM/YYYY HH:mm:ss')} - Email sent`);
 });
 
 /*bot.context.db = {
