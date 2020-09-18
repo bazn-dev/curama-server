@@ -5,7 +5,8 @@ const leadSchema = new Schema({
   name: String,
   email: String,
   phone: String,
-  company: String
+  company: String,
+  isLetterSent: Boolean
 });
 
 module.exports = {
