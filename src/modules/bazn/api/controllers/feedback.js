@@ -1,5 +1,5 @@
 const moment = require('moment');
-const telegramBot = require('../../../../loaders/telegramBot');
+const telegramBot = require('../../../../loaders/telegram');
 
 module.exports = (req, res, next) => {
   telegramBot.telegram.sendMessage(

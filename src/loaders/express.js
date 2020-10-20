@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 //const api = require('../api');
 const baznAPI = require('../modules/bazn/api');
+const bot = require('./telegram');
 
 module.exports.expressLoader = async function(app) {
   app.use(bodyParser.json());
@@ -14,6 +15,7 @@ module.exports.expressLoader = async function(app) {
   });
 
   app.get('/', (req, res) => {
+    bot.telegram.sendMessage(289730027, "Hello!");
     res.status(200).send("Hello! I'm CURAMA!)");
   });
 

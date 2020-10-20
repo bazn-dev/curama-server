@@ -1,5 +1,5 @@
 const moment = require('moment');
-const LeadModel = require('../../../../../models/lead').model;
+const LeadModel = require('../../../../../models/Lead').model;
 
 module.exports = (req, res, next) => {
     LeadModel.findOne({ _id: req.params.id }, (error, lead) => {

@@ -1,8 +1,8 @@
 const Telegraf = require('telegraf');
 const mailer = require('../middlewares/mailer');
 const bot = new Telegraf('825767029:AAGcZ0HtesV-W_1PgZeYqXSZaCRKqH14NCo');
-const LeadModel = require('../models/lead').model;
-const LeadTextModel = require('../models/leadText').model;
+const LeadModel = require('../models/Lead').model;
+const LeadTextModel = require('../models/LeadText').model;
 const moment = require('moment');
 const Markup = require('telegraf/markup.js');
 
@@ -21,7 +21,6 @@ bot.help(ctx => ctx.reply('Send me a sticker'));
 bot.on('sticker', ctx => ctx.reply('👍'));
 bot.hears('hi', ctx => ctx.reply('Hey there'));
 bot.hears('start', ctx => ctx.reply('Play'));
-
 
 /* LEADS */
 bot.hears('leads', (ctx) => {
