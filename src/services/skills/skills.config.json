@@ -1,0 +1,75 @@
+{
+  "name": "skills",
+  "schema": {
+    "name": "String",
+    "title": "String",
+    "description": "String",
+
+    "method": "String",
+    "status": "String",
+    "modules": "Object",
+    "classes": "Object"
+  },
+  "api": {
+    "skills/get": {
+      "method": "get",
+      "request": {
+      },
+      "response": {
+        "success": {
+          "status": 200,
+          "statusMessage": "Successfully get skills"
+        },
+        "error": {
+          "status": 500,
+          "statusMessage": "Failed to get skills"
+        }
+      }
+    },
+    "skills/add": {
+      "method": "add",
+      "request": {
+      },
+      "response": {
+        "success": {
+          "status": 200,
+          "statusMessage": "Successfully add skill"
+        },
+        "error": {
+          "status": 500,
+          "statusMessage": "Failed to add skill"
+        }
+      }
+    },
+    "skills/edit": {
+      "method": "edit",
+      "request": {
+      },
+      "response": {
+        "success": {
+          "status": 200,
+          "statusMessage": "Successfully edit skill"
+        },
+        "error": {
+          "status": 500,
+          "statusMessage": "Failed to edit skill"
+        }
+      }
+    },
+    "skills/delete": {
+      "method": "delete",
+      "request": {
+      },
+      "response": {
+        "success": {
+          "status": 200,
+          "statusMessage": "Successfully delete skill"
+        },
+        "error": {
+          "status": 500,
+          "statusMessage": "Failed to delete skill"
+        }
+      }
+    }
+  }
+}
