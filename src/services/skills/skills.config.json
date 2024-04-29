@@ -1,14 +1,14 @@
 {
   "name": "skills",
   "schema": {
-    "name": "String",
+    "apiName": "String",
     "title": "String",
     "description": "String",
-
     "method": "String",
     "status": "String",
-    "modules": "Object",
-    "classes": "Object"
+    "classes": "Object",
+    "request": "Object",
+    "response": "Object"
   },
   "api": {
     "skills/get": {

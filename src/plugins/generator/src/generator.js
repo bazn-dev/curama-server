@@ -53,7 +53,7 @@ class BackendGenerator {
     this.generateComponents(this.SETTINGS);
 
     /* scripts */
-    this.generateFile(this.DIR_SCRIPTS, 'logger.js', LOGGER_CODE);
+    this.generateFile(this.DIR_SCRIPTS, 'index.js', LOGGER_CODE);
 
     console.log('Microservice created successfully!');
   }

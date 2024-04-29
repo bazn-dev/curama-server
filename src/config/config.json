@@ -1,6 +1,6 @@
 {
   "startMessage": "App listening on port",
-  "port": "8080",
+  "port": "9999",
   "dataBase": {
     "engine": "mongodb",
     "name": "curama",

@@ -27,9 +27,6 @@ module.exports.expressLoader = async function(app) {
   app.get('/status', (req, res) => {
     res.status(200).send('Server is running').end();
   });
-  app.head('/status', (req, res) => {
-    res.status(200).send('Server is running').end();
-  });
 
   //Catch 404 and forward to error handler
   app.use((req, res, next) => {

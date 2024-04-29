@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const moment = require('moment')
-const log = require('../libs/logger')
+const log = require('../plugins/logger')
 const Schema = mongoose.Schema
 
 class CoreComponent {
