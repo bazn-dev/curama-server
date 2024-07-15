@@ -1,11 +1,23 @@
 const telegramBot = require('../plugins/telegram')
 const {message} = require('telegraf/filters');
-const services = require('../services');
 
-module.exports.connect = async function() {
-  console.log(services['skills/get']())
-  telegramBot.on(message('text'), ctx => {
-    console.log(ctx.update.message.date, ctx.update.message.text)
-    return ctx.reply(`Hello!`)
-  });
+module.exports.telegramConnect = async function() {
+    require('../services/telegramGateway').connect();
 }
+
+module.exports.socketConnect = async function (app) {
+    const io = require('socket.io')(app, {
+      cors: {
+        origin: '*'
+      }
+    });
+  
+    console.log('load socket')
+  
+    io.on("connection", socket => {
+      console.log("Add connection");
+      require('../services/socketGateway').connection(socket, io);
+      socket.on('disconnect', data => io.emit('user disconnected', socket.userId));
+    });
+  };
+
