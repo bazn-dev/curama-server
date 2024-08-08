@@ -1,6 +1,6 @@
-const crons = require('../crons');
+const cron = require('../libs/cronGateway');
 
-module.exports.start = function() {
-    // crons.start();
-    // crons.stop();
+module.exports.connect = function() {
+    // cron.start();
+    // cron.stop();
 }

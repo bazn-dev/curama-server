@@ -1,3 +1,3 @@
 module.exports = (reqParams, context) => {
-    throw new Error('Method is not ready')
-  }
+  return context.models.task.find({})
+}

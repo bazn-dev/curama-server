@@ -1,8 +1,8 @@
 let PACKAGE_DATA = {
   author: 'Alex Bazhin',
-  main: 'index.js',
+  main: 'cronGateway.js',
   scripts: {
-    start: 'node index.js',
+    start: 'node cronGateway.js',
     dev: 'npx nodemon',
     test: 'echo "Error: no test specified" && exit 1',
     doc: 'apidoc -i src/ -o apidoc/'

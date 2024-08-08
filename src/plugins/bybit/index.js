@@ -1,5 +1,6 @@
 const { RestClientV5 } = require('bybit-api');
 
+// change onn functional type
 class ByBit {
     constructor() {
         this.client = new RestClientV5({

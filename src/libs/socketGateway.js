@@ -1,5 +1,5 @@
-const classes = require('./classes')
-const skills = require('./skills')
+const classes = require('./baseModels/classes')
+const skills = require('./baseModels/skills')
 const methods = require('../methods')
 
 module.exports.connection = (socket, io) => {

@@ -1,3 +1,5 @@
 module.exports = (reqParams, context) => {
-  throw new Error('Method is not ready')
+  console.log(typeof reqParams)
+  const newData = new context.models.task(reqParams)
+  return newData.save()
 }

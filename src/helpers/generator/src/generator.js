@@ -36,8 +36,8 @@ class BackendGenerator {
     this.generateFile(`../${this.DIR_PROJECT}/`, 'package.json', PACKAGE_DATA);
     this.generateFile(`../${this.DIR_PROJECT}/`, '.gitignore', GITIGNORE_CODE);
 
-    /* index.js */
-    this.generateFile(`../${this.DIR_PROJECT}/`, 'index.js', INDEX_CODE);
+    /* cronGateway.js */
+    this.generateFile(`../${this.DIR_PROJECT}/`, 'cronGateway.js', INDEX_CODE);
 
     /* config */
     this.setConfigData(this.SETTINGS);
@@ -47,13 +47,13 @@ class BackendGenerator {
     this.generateFile(this.DIR_LOADERS, 'express.js', EXPRESS_LOADER_CODE);
     this.generateDataBaseLoader(this.DIR_LOADERS, this.SETTINGS);
     this.generateFile(this.DIR_LOADERS, 'socket-io.js', SOCKET_IO_LOADER_CODE);
-    this.generateFile(this.DIR_LOADERS, 'index.js', INDEX_LOADER_CODE);
+    this.generateFile(this.DIR_LOADERS, 'cronGateway.js', INDEX_LOADER_CODE);
 
     /* components */
     this.generateComponents(this.SETTINGS);
 
     /* scripts */
-    this.generateFile(this.DIR_SCRIPTS, 'index.js', LOGGER_CODE);
+    this.generateFile(this.DIR_SCRIPTS, 'cronGateway.js', LOGGER_CODE);
 
     console.log('Microservice created successfully!');
   }
@@ -70,7 +70,7 @@ class BackendGenerator {
       }
 
       this.generateDir(`${this.DIR_COMPONENTS}/${component.name}`);
-      this.generateFile(`${this.DIR_COMPONENTS}/${component.name}`, 'index.js', this.setIndexComponentCode(component));
+      this.generateFile(`${this.DIR_COMPONENTS}/${component.name}`, 'cronGateway.js', this.setIndexComponentCode(component));
       this.generateFile(`${this.DIR_COMPONENTS}/${component.name}`, `${component.name}.config.json`, this.setConfigComponentCode(component));
       this.generateFile(`${this.DIR_COMPONENTS}/${component.name}`, `${component.name}.model.js`, this.setModelComponentCode(component));
       this.generateFile(`${this.DIR_COMPONENTS}/${component.name}`, `${component.name}.middleware.js`, this.setMiddlewareComponentCode(component));
@@ -194,7 +194,7 @@ class BackendGenerator {
     this.DIR_COMPONENTS = `../${this.DIR_PROJECT}/src/components`;
   }
 
-  /* Установка кода index.js всех компонентов */
+  /* Установка кода cronGateway.js всех компонентов */
   setIndexComponentsCode (components) {
     let importComponentsCode = '';
     let routerUseCode = '';
@@ -233,7 +233,7 @@ module.exports.connection = function (socket) {
 };`;
   }
 
-  /* Установка кода index.js */
+  /* Установка кода cronGateway.js */
   setIndexComponentCode (component) {
     return `const methods = require('./${component.name}.config').methods;
 const middlewares = require('./${component.name}.middleware');
@@ -368,11 +368,11 @@ module.exports.delete${this.setFirstLetterToUpperCase(name)} = (socket, data) =>
 
   /* Генерация компонентов */
   generateComponents (settings) {
-    this.generateFile(`${this.DIR_COMPONENTS}`, 'index.js', this.setIndexComponentsCode(settings.components));
+    this.generateFile(`${this.DIR_COMPONENTS}`, 'cronGateway.js', this.setIndexComponentsCode(settings.components));
 
     settings.components.forEach(component => {
       this.generateDir(`${this.DIR_COMPONENTS}/${component.name}`);
-      this.generateFile(`${this.DIR_COMPONENTS}/${component.name}`, 'index.js', this.setIndexComponentCode(component));
+      this.generateFile(`${this.DIR_COMPONENTS}/${component.name}`, 'cronGateway.js', this.setIndexComponentCode(component));
       this.generateFile(`${this.DIR_COMPONENTS}/${component.name}`, `${component.name}.config.json`, this.setConfigComponentCode(component));
       this.generateFile(`${this.DIR_COMPONENTS}/${component.name}`, `${component.name}.model.js`, this.setModelComponentCode(component));
       this.generateFile(`${this.DIR_COMPONENTS}/${component.name}`, `${component.name}.middleware.js`, this.setMiddlewareComponentCode(component));

@@ -1,5 +1,5 @@
 const config = require('./skills.config.json')
-const log = require("../../plugins/logger");
+const log = require("../../../helpers/logger");
 const moment = require("moment");
 const model = require('./skills.model')
 
