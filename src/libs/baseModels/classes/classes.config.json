@@ -9,63 +9,23 @@
   "api": {
     "classes/get": {
       "method": "get",
-      "request": {
-      },
-      "response": {
-        "success": {
-          "status": 200,
-          "statusMessage": "Successfully get classes"
-        },
-        "error": {
-          "status": 500,
-          "statusMessage": "Failed to get classes"
-        }
-      }
+      "parameters": {},
+      "response": {}
     },
     "classes/add": {
       "method": "add",
-      "request": {
-      },
-      "response": {
-        "success": {
-          "status": 200,
-          "statusMessage": "Successfully add class"
-        },
-        "error": {
-          "status": 500,
-          "statusMessage": "Failed to add class"
-        }
-      }
+      "parameters": {},
+      "response": {}
     },
     "classes/edit": {
       "method": "edit",
-      "request": {
-      },
-      "response": {
-        "success": {
-          "status": 200,
-          "statusMessage": "Successfully edit class"
-        },
-        "error": {
-          "status": 500,
-          "statusMessage": "Failed to edit class"
-        }
-      }
+      "parameters": {},
+      "response": {}
     },
     "classes/delete": {
       "method": "delete",
-      "request": {
-      },
-      "response": {
-        "success": {
-          "status": 200,
-          "statusMessage": "Successfully delete class"
-        },
-        "error": {
-          "status": 500,
-          "statusMessage": "Failed to delete class"
-        }
-      }
+      "parameters": {},
+      "response": {}
     }
   }
 }

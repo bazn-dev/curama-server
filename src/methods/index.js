@@ -14,7 +14,7 @@ async function generateFile(dir, file, data) {
 	});
 }
 
-module.exports.connect = async (socket, io) => {
+module.exports.connect = async (socket) => {
 	const classes = await ClassesModel.find({})
 	const skills = await SkillsModel.find({})
 	
@@ -42,15 +42,15 @@ module.exports.connect = async (socket, io) => {
 					script = await require(`./${skill.method}`)
 				}
 				const execResult = await script(data, context)
-				log.info(`${moment().format('DD.MM.YYYY HH:mm:ss')} - [${skill.title}] - ${skill.response.success.statusMessage}`)
+				log.info(`${moment().format('DD.MM.YYYY HH:mm:ss')} - [${skill.title}] - Success`)
 				res = {
-					...skill.response.success,
+					status: 'success',
 					data: execResult
 				}
 			} catch (e) {
-				log.error(`${moment().format('DD.MM.YYYY HH:mm:ss')} - [${skill.title}] - ${e.message}`)
+				log.error(`${moment().format('DD.MM.YYYY HH:mm:ss')} - [${skill.title}] - Error: ${e.message}`)
 				res = {
-					...skill.response.error,
+					status: 'error',
 					error: e.message
 				}
 			}

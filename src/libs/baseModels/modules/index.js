@@ -1,7 +1,7 @@
-const config = require('./skills.config.json')
+const config = require('./modules.config.json')
 const log = require("../../../helpers/logger");
 const moment = require("moment");
-const model = require('./skills.model')
+const model = require('./modules.model')
 
 module.exports.connect = (socket) => {
   let context = { model }

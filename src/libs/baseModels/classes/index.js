@@ -8,20 +8,20 @@ module.exports.connect = (socket) => {
   
   for (const apiMethodName of Object.keys(config.api)) {
     const methodName = config.api[apiMethodName].method
-    const successStatusMessage = config.api[apiMethodName].response.success.statusMessage
     socket.on(apiMethodName, async data => {
       let res = null
       try {
         const execResult = await require(`./methods/${methodName}`)(data, context)
-        log.info(`${moment().format('DD.MM.YYYY HH:mm:ss')} - [${apiMethodName}] - ${successStatusMessage}`)
+        log.info(`${moment().format('DD.MM.YYYY HH:mm:ss')} - [${apiMethodName}] - Success`)
         res = {
-          ...config.api[apiMethodName].response.success,
+          status: 'success',
           data: execResult
         }
       } catch (e) {
-        log.error(`${moment().format('DD.MM.YYYY HH:mm:ss')} - [${apiMethodName}] - ${e.message}`)
+        log.error(`${moment().format('DD.MM.YYYY HH:mm:ss')} - [${apiMethodName}] - Error: ${e.message}`)
         res = {
-          ...config.api[apiMethodName].response.error
+          status: 'error',
+          message: e.message
         }
       }
       socket.emit(apiMethodName, res)

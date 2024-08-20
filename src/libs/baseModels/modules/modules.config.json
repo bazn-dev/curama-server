@@ -1,32 +1,27 @@
 {
-  "name": "skills",
+  "name": "modules",
   "schema": {
-    "api": "String",
+    "name": "String",
     "title": "String",
-    "description": "String",
-    "method": "String",
-    "status": "String",
-    "module": "String",
-    "parameters": "Object",
-    "response": "Object"
+    "description": "String"
   },
   "api": {
-    "skills/get": {
+    "modules/get": {
       "method": "get",
       "parameters": {},
       "response": {}
     },
-    "skills/add": {
+    "modules/add": {
       "method": "add",
       "parameters": {},
       "response": {}
     },
-    "skills/edit": {
+    "modules/edit": {
       "method": "edit",
       "parameters": {},
       "response": {}
     },
-    "skills/delete": {
+    "modules/delete": {
       "method": "delete",
       "parameters": {},
       "response": {}
